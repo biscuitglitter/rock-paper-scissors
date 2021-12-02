@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body>
+  <main>
+    <section class="battle">
+      <div class="stat-u">
+        <ul>
+          <li>name: <span id="username"></span> </li>
+          <li>choice: <span id="user-selection"></span></li>
+          <li>score: <span id="user_score"></span></li>
+        </ul>
+      </div>
+      <section class="battle-2">
+        <div id="displaymessage"></div>
+      </section>
+
+
+      <div class="stat-c">
+        <ul>
+          <li>computer: <span id="computer_name"></span> </li>
+          <li>choice: <span id="computer_selection">...</span></li>
+          <li>score: <span id="computer_score"></span></li>
+        </ul>
+      </div>
+    </section>
+    <div class="controls">
+      <button class="btn" id="rock">rock</button>
+      <button class="btn" id="paper">paper</button>
+      <button class="btn" id="scissors">scissors</button>
+    </div>
+
+    <div class="start"><button onclick="getName()">start</button></div>
+  </main>
+
+
+  <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
