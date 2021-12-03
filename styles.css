@@ -42,8 +42,8 @@ body {
 .battle-2 {
   margin-top: 200px;
   display: flex;
-  width: 150px;
-  height: 100px;
+  min-width: 150px;
+  min-height: 100px;
   align-items: center;
   padding: 1rem;
 }

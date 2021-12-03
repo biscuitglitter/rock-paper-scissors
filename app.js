@@ -5,7 +5,7 @@ const userSelectionDisplay = document.getElementById("user-selection");
 const userNameDisplay = document.getElementById("username");
 const computerNameDisplay = document.getElementById("computer_name")
 const possibleChoices = document.querySelectorAll(".btn");
-const scoresDisplay = document.getElementById("displaymessage");
+
 
 
 let choices = ['rock', 'paper', 'scissors'];
@@ -13,6 +13,8 @@ let choices = ['rock', 'paper', 'scissors'];
 let userSelection
 let computerSelection
 let userName
+let result
+
 
 function getName() {
   let userName = prompt("enter your name: ");
@@ -36,29 +38,17 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click
 
 function playRound(userSelection, computerSelection) {
   if (userSelection === "rock" && computerSelection === "paper") {
-    result = "Paper beats rock! You lose...";
-    cScore++;
-  } else if (userSelection === "rock" && computerSelection === "scissors") {
-    result = "Rock beats scissors! You win!";
-    uScore++;
-  } else if (userSelection === "paper" && computerSelection === "scissors") {
-    result = "Scissors beats paper! You lose...";
-    cScore++;
-  } else if (userSelection === "paper" && computerSelection === "rock") {
-    result = "Paper beats rock! You win!";
-    uScore++;
-  } else if (userSelection === "scissors" && computerSelection === "paper") {
-    result = "Paper beats scissors! You win!";
-    uScore++;
-  } else if (userSelection === "scissors" && computerSelection === "rock") {
-    result = "Rock beats scissors! You lose...";
-    cScore++;
-  } else if (userSelection === computerSelection) {
-    result = "It's a tie!";
-  } else {
-    result = "Please enter a valid choice.";
+    result = "paper beats rock! you lose";
+  } if (userSelection === "rock" && computerSelection === "scissors") {
+    result = "rock beats scissors! you win!";
+  } if (userSelection === "paper" && computerSelection === "scissors") {
+    result = "scissors beats paper! you lose";
+  } if (userSelection === "paper" && computerSelection === "rock") {
+    result = "paper beats rock! you win!";
+  } if (userSelection === "scissors" && computerSelection === "paper") {
+    result = "paper beats scissors! you win!";
+  } if (userSelection === "scissors" && computerSelection === "rock") {
+    result = "rock beats scissors! you lose";
   }
-  return result;
+  result = document.querySelector("#displayMessage").innerText
 }
-
-console.log(playRound());
