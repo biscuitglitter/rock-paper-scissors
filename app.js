@@ -3,17 +3,15 @@
 const computerSelectionDisplay = document.getElementById("computer_selection");
 const userSelectionDisplay = document.getElementById("user-selection");
 const userNameDisplay = document.getElementById("username");
-const computerNameDisplay = document.getElementById("computer_name")
+const computerNameDisplay = document.getElementById("computer_name");
 const possibleChoices = document.querySelectorAll(".btn");
-
-
-
-let choices = ['rock', 'paper', 'scissors'];
+const displayResult = document.getElementById("user_score");
 
 let userSelection
 let computerSelection
 let userName
-let result
+let choices
+
 
 
 function getName() {
@@ -24,31 +22,37 @@ function getName() {
 
 
 function computerPlay() {
-  let computerSelection = choices[Math.floor(Math.random() * choices.length)];
+  const choices = ['rock', 'paper', 'scissors'];
+  const computerSelection = choices[Math.floor(Math.random() * 3)];
   computerSelectionDisplay.innerHTML = computerSelection
 }
+computerPlay()
 
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click", (e) => {
   userSelection = e.target.id
   userSelectionDisplay.innerHTML = userSelection
   computerPlay();
   playRound();
+
 }))
 
-
-function playRound(userSelection, computerSelection) {
-  if (userSelection === "rock" && computerSelection === "paper") {
-    result = "paper beats rock! you lose";
-  } if (userSelection === "rock" && computerSelection === "scissors") {
-    result = "rock beats scissors! you win!";
-  } if (userSelection === "paper" && computerSelection === "scissors") {
-    result = "scissors beats paper! you lose";
-  } if (userSelection === "paper" && computerSelection === "rock") {
-    result = "paper beats rock! you win!";
-  } if (userSelection === "scissors" && computerSelection === "paper") {
-    result = "paper beats scissors! you win!";
-  } if (userSelection === "scissors" && computerSelection === "rock") {
-    result = "rock beats scissors! you lose";
+const playRound = () => {
+  let computerSelection = computerPlay();
+  switch (userSelection + computerSelection) {
+    case "scissorspaper":
+    case "rockscissors":
+    case "paperrock":
+      document.getElementById("user_score").innerHTML = "you win";
+      break
+    case "paperscissors":
+    case "scissorsrock":
+    case "rockpaper":
+      document.getElementById("user_score").innerHTML = "you lose";
+      break
+    case "paperpaper":
+    case "scissorsscissors":
+    case "rockrock":
+      document.getElementById("user_score").innerHTML = "it's a tie";
+      break
   }
-  result = document.querySelector("#displayMessage").innerText
 }
