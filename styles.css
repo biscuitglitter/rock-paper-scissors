@@ -29,15 +29,17 @@ main {
 }
 
 .battle {
+  display: flex;
   margin-top: 30px;
   border: 1px solid #333;
   display: flex;
   width: 500px;
   height: 300px;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  padding-top: 6rem;
 }
 
 .battle_area {
@@ -80,6 +82,13 @@ flex-direction: row;
   border: 1px solid #333;
   background-color: cornflowerblue;
   cursor: pointer;
+}
+
+.result {
+  display: flex;
+  margin-top: 20px;
+  padding: 2rem;
+  overflow: hidden;
 }
 
 .start {
