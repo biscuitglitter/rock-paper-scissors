@@ -7,11 +7,11 @@ const usernamedisplay = document.getElementById("username");
 const gameresultdisplay = document.getElementById("resultdisplay");
 
 let playerchoice 
-let computerchoice
+let computerchoice 
 
 function computerPlay() {
   let choices = ['rock', 'paper', 'scissors'];
-  let computerchoice = choices[Math.floor(Math.random() * choices.length)];  
+  computerchoice = choices[Math.floor(Math.random() * choices.length)];  
   computerchoicedisplay.innerHTML = computerchoice 
 }
  
@@ -30,24 +30,24 @@ const game = () => {
   case "scissorspaper":
   case "rockscissors":
   case "paperrock":
-    h2.innerHTML  += "you win";
+    gameresultdisplay.innerHTML  += "you win";
     break
   case "paperscissors":
   case "scissorsrock":
   case "rockpaper":
-    h2.innerHTML += "you lose";
+    gameresultdisplay.innerHTML += "you lose";
     break
   case "paperpaper":
   case "rockrock":
   case "scissorscissors":
-    h2.innerHTML += "it's a draw";
+    gameresultdisplay.innerHTML += "it's a draw";
       break
   }
 }
 
 function username() {
   var username = prompt("Please enter your name:");
-  document.innerHTML = username;
+  usernamedisplay.innerHTML = username;
   typer();
 }
 
