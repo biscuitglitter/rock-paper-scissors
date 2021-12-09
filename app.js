@@ -1,61 +1,59 @@
 "use strict";
 
-const computerSelectionDisplay = document.getElementById("computer-selection");
-const userSelectionDisplay = document.getElementById("user-selection");
-const userNameDisplay = document.getElementById("username");
-const possibleChoices = document.querySelectorAll("button");
-const u_scoreDisplay = document.getElementById("user_score");
-const c_scoreDisplay = document.getElementById("computer_score");
+const computerchoicedisplay = document.getElementById("computer-selection");
+const playerchoicedisplay = document.getElementById("user-selection");
+const possiblechoices = document.querySelectorAll(".btn");
+const usernamedisplay = document.getElementById("username");
+const playerscoredisplay = document.getElementById("user_score");
+const computerscoredisplay = document.getElementById("computer_score");
 
-let uScore = 0;
-let cScore = 0;
-
-let userSelection
-let computerSelection
-
-function userName() {
-  var userName = prompt("Please enter your name:");
-  return userName;
-}
-
-function computerPlay() {
-  let choices = ['rock', 'paper', 'scissors'];
-  let computerSelection = choices[Math.floor(Math.random() * choices.length)];  
-  computerSelectionDisplay.innerHTML = computerSelection 
-}
-
-possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click", (e) => {
-  userSelection = e.target.id
-  userSelectionDisplay.innerHTML = userSelection
-  computerPlay();
-}))
-
-function playRound(userSelection, computerSelection) {
-  if (userSelection === "rock" && computerSelection === "paper") {
-    result = "Paper beats rock! You lose...";
-    cScore++;
-  } else if (userSelection === "rock" && computerSelection === "scissors") {
-    result = "Rock beats scissors! You win!";
-    uScore++;
-  } else if (userSelection === "paper" && computerSelection === "scissors") {
-    result = "Scissors beats paper! You lose...";
-    cScore++;
-  } else if (userSelection === "paper" && computerSelection === "rock") {
-    result = "Paper beats rock! You win!";
-    uScore++;
-  } else if (userSelection === "scissors" && computerSelection === "paper") {
-    result = "Paper beats scissors! You win!";
-    uScore++;
-  } else if (userSelection === "scissors" && computerSelection === "rock") {
-    result = "Rock beats scissors! You lose...";
-    cScore++;
-  } else if (userSelection === computerSelection) {
-    result = "It's a tie!";
-  } else {
-    result = "Please enter a valid choice.";
+  
+  let playerchoice
+  let computerchoice
+  
+  function username() {
+    var username = prompt("Please enter your name:");
+    return username;
   }
-  scoreDisplay.innerHTML = score
+  
+  function computerPlay() {
+    let choices = ['rock', 'paper', 'scissors'];
+    let computerchoice = choices[Math.floor(Math.random() * choices.length)];  
+    computerchoicedisplay.innerHTML = computerchoice 
+  }
+  
+  possiblechoices.forEach(possiblechoice => possiblechoice.addEventListener("click", (e) => {
+    playerchoice = e.target.id
+    playerchoicedisplay.innerHTML = playerchoice
+    computerPlay();
+    game();
+  }))
+
+function game (playerchoice) {
+  const computerchoice = computerPlay();
+
+  switch (playerchoice + computerchoice) {
+  case "scissorspaper":
+  case "rockscissors":
+  case "paperrock":
+      gameresultdisplay.innerHTML = "you win"
+    break
+  case "paperscissors":
+  case "scissorsrock":
+  case "rockpaper":
+      gameresultdisplay.innerHTML = "you lose"
+  case "paperpaper":
+  case "rockrock":
+  case "scissorscissors":
+      gameresultdisplay.innerHTML = "it's a draw"
+  }
 }
+console.log(game());
 
 
-
+function username() {
+  var username = prompt("Please enter your name:");
+  usernamedisplay.innerHTML = username;
+  document.getElementById("computer_name").innerHTML = "robert";
+  game();
+}
