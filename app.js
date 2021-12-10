@@ -11,8 +11,8 @@ const computerscoredisplay = document.getElementById("computerscore")
 let playerchoice 
 let computerchoice 
 
-let pscore 
-let cscore 
+let pscore = 0;
+let cscore = 0;
 
 function computerPlay() {
   let choices = ['rock', 'paper', 'scissors'];
@@ -31,8 +31,6 @@ function computerPlay() {
   }))
 
 const game = () => {
-  pscore = 0;
-  cscore = 0;
   switch (playerchoice + computerchoice) {
   case "scissorspaper":
   case "rockscissors":
